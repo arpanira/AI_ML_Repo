@@ -1,0 +1,12 @@
+1.Created login on On TMDB wesite.
+2.Created API key on the tmdb website,which generated a token.
+This token could be used as ?api_key=" " appended in the https link,whenever we make API calls to get the data.
+3.I hit 3 API end points: to get few data samples and process the original data.Since I could not make multiple api calls.I limited myself
+to few records to do POC.
+a. https://api.themoviedb.org/3/movie/top_rated?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US&page={i}
+b.https://api.themoviedb.org/3/movie/{i}/credits?api_key=0ff537d323525617ee3b8916dbf95770
+c.https://api.themoviedb.org/3/genre/movie/list?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US
+4. Model building was done with data that was got from kaggle.
+
+
+

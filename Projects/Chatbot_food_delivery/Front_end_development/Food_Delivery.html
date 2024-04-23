@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archana's Kitchen - Order Online</title>
+    <!-- Add CSS styles here -->
+    <style>
+        /* Add your CSS styles here */
+        /* Style for chat container */
+        #chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        /* Style for chat messages */
+        .chat-message {
+            margin-bottom: 10px;
+        }
+        /* Style for Dialogflow iframe */
+        #dialogflow-frame {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 430px;
+        }
+    </style>
+</head>
+<body Bgcolor="Orange">
+    <h1><img src="C:\Users\Home\PycharmProjects\Chatbot_food_delivery\Front_end_development\heading_food.jpeg" alt="Logo" style="height: 50px; vertical-align: middle;"> Archana's Kitchen - Order Online</h1>
+    
+     <h2>Menu</h2>
+    <div class="menu-item">
+        <img src="C:\Users\Home\PycharmProjects\Chatbot_food_delivery\Front_end_development\idli_img.jpeg" alt="Idli">
+        <p>Idli</p>
+    </div>
+    <div class="menu-item">
+        <img src="C:\Users\Home\PycharmProjects\Chatbot_food_delivery\Front_end_development\vada_img.jpeg" alt="Vada">
+        <p>Vada</p>
+    </div>
+    <ul>
+        <li>Idli</li>
+        <li>Vada</li>
+        <li>Plain Dosa</li>
+        <li>Kesari bath</li>
+        <li>Poha</li>
+        <li>Masala Dosa</li>
+        <li>Pav Bhaji</li>
+        <li>Vada Pav</li>
+        <li>Upma</li>
+    </ul>
+
+    <h2>Chat with us</h2>
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-button">Send</button>
+    </div>
+    
+    <!-- Add JavaScript code here -->
+    <script>
+        // Add your JavaScript code here
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        
+        // Function to display a message in the chat
+        function displayMessage(message, isUser) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message');
+            messageElement.textContent = message;
+            if (isUser) {
+                messageElement.style.textAlign = 'right';
+            }
+            chatMessages.appendChild(messageElement);
+        }
+        
+        // Function to send a message to the chatbot
+        function sendMessageToChatbot(message) {
+            // Send message to backend server or Dialogflow
+            // For now, just echo back the user's message
+            displayMessage('User: ' + message, true);
+            displayMessage('Bot: ' + 'Echoing back: ' + message, false);
+        }
+        
+        // Event listener for send button click
+        sendButton.addEventListener('click', function() {
+            const message = userInput.value.trim();
+            if (message !== '') {
+                sendMessageToChatbot(message);
+                userInput.value = '';
+            }
+        });
+        
+        // Event listener for Enter key press in input field
+        userInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+    </script>
+
+    <!-- Dialogflow iframe -->
+    <iframe id="dialogflow-frame" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/94f55ae3-fa5e-4002-8745-ae39bc254b43"></iframe>
+</body>
+</html>

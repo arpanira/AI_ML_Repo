@@ -1,0 +1,21 @@
+1. Sign in on with your google account on  dialogflow.cloud.google.com.use dialogflow CS(standard) version.
+2. Sign in with your google account.
+3. Within dialogflow you can have multiple agents.
+4.Each agent is like a chatbot.
+2. Created an agent which would act like a trained bot(model trained on NLP).
+3.Initilaised Intents,entities,provided training phrases and set responses for each intents.
+4.Some of the intents need to have contexts defined.Incoming and outgoing contexts are set based on where in the converstaion intent may come.
+5.Also on the training phrase ,you can explicityly select the numbers,food_items and specify what parameter they are.
+6.The chatbot application to work, required some calls to be made to database server(such a order management system).This integration is acheived through fullfilment in dialogflow.
+7.Flask and python was used to develop backend server, which has code embedded that intun makes connect with sql server database .
+8. Before we set the URL in the fullfilment section in the dialogflow,we will run the flask code on pycharm terminal
+ "python app.py --reload"
+ which will run webserver ,on local machine.It will be a http link.We need to convert this http link to https(using ngrok)
+9. Installed and signed up for using ngrok ,there were some authentication steps which i followed inorder to use the ngrok feature.
+10.After downloading ngrok,if you open the ngrok executable file.It opens a command prompt.You may type "ngrok http 5000" to get the https link corresponding to http link.
+11.Copy the https link,along with route defined for webhook endpoint.
+12.Enable webhook on intents in dialogflow, where you want backend api call to be made .
+13.Based on the intent that gets executed,webhook request is made on backend.
+14.After testing the chatbot on dialogflow.You can integrate with frontend Archana's kitchen  website(developed using help of chatbot ).You can copy the link that you get from dialogflow (dialogflow-->integrations-->dialogflow Messenger-->copy the whole tag ,in the body of the html file.
+15.Open the html and you can see the chatbot pop.:)
+
